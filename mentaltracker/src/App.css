@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+.App pre {
+  text-align: center;
+  margin: 0 auto !important;
+  font-size: 18px !important;
+  padding-bottom: 1%;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #666;
+  border: 1px solid #ddd;
+  color: #333;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: #ddd;
+  color: #555;
+  padding: 10px 40px;
+}
+
