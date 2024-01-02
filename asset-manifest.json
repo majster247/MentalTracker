@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/MentalTracker/static/css/main.f855e6bc.css",
-    "main.js": "/MentalTracker/static/js/main.0d68950f.js",
+    "main.css": "/MentalTracker/static/css/main.6914993c.css",
+    "main.js": "/MentalTracker/static/js/main.04311281.js",
     "static/js/787.185c710e.chunk.js": "/MentalTracker/static/js/787.185c710e.chunk.js",
     "index.html": "/MentalTracker/index.html",
-    "main.f855e6bc.css.map": "/MentalTracker/static/css/main.f855e6bc.css.map",
-    "main.0d68950f.js.map": "/MentalTracker/static/js/main.0d68950f.js.map",
+    "main.6914993c.css.map": "/MentalTracker/static/css/main.6914993c.css.map",
+    "main.04311281.js.map": "/MentalTracker/static/js/main.04311281.js.map",
     "787.185c710e.chunk.js.map": "/MentalTracker/static/js/787.185c710e.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.0d68950f.js"
+    "static/css/main.6914993c.css",
+    "static/js/main.04311281.js"
   ]
 }
