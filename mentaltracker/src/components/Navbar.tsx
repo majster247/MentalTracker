@@ -1,11 +1,10 @@
-// Navbar.tsx
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 interface NavbarProps {
-  isAdmin: boolean;
   onLogin: () => void;
+  isAuthenticated: boolean;
 }
 
 const StyledNavbar = styled.nav`
@@ -13,9 +12,12 @@ const StyledNavbar = styled.nav`
   color: white;
   border: 1px solid #ccc;
   padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 `;
 
-const Navbar: React.FC<NavbarProps> = ({ isAdmin, onLogin }) => {
+const Navbar: React.FC<NavbarProps> = ({ onLogin, isAuthenticated }) => {
   const [showPrivate, setShowPrivate] = useState(false);
 
   const handleToggleVisibility = () => {
@@ -35,8 +37,8 @@ const Navbar: React.FC<NavbarProps> = ({ isAdmin, onLogin }) => {
   return (
     <StyledNavbar>
       <div>
-        <button onClick={onLogin}>{isAdmin ? 'Logout' : 'Login as Admin'}</button>
-        {isAdmin && (
+        <button onClick={onLogin}>{isAuthenticated ? 'Logout' : 'Login'}</button>
+        {isAuthenticated && (
           <>
             <button onClick={handleAddGoal}>Add Goal</button>
             <button onClick={handleDeleteGoal}>Delete Goal</button>
