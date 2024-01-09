@@ -22,7 +22,12 @@ const App: React.FC = () => {
   ⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
       ⠛⠛⠛⠛⠛⠛⠛⠁
 `;
-
+const Quote = ["Baobabium","Baobab thinking....","Abbys ababa aboa babybys"]
+const getRandomQuote = (array) => {
+  const randomQuote = array[Math.floor(Math.random() * array.length)]
+  return randomQuote
+}
+const [randomQuote, setRandomQuote] = useState(() => getRandomQuote(Quote))
 const [isAuthenticated, setIsAuthenticated] = useState(false);
 const [showAsciiArt, setShowAsciiArt] = useState(true);
 const [startApp, setStartApp] = useState(false); 
@@ -42,7 +47,7 @@ return (
       {showAsciiArt && (
         <header className="App-header">
           <h1>Mental Tracker</h1>
-          <pre className="ascii-art">{asciiArt}</pre>
+          <pre className="ascii-art">{asciiArt}<br/></pre>
           {!isAuthenticated && (
             <button className="button" onClick={handleStartClick}>
               Start
