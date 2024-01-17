@@ -1,65 +1,45 @@
-import React, { useState } from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+// App.tsx
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Tree from './components/Tree';
+import Login from './components/Login';
+import GoalList from './components/GoalList';
+import GoalDetails from './components/GoalDetails';
+import MainPage from './components/MainPage';
 
 const App: React.FC = () => {
-  const asciiArt = `
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⢠⣴⣾⣿⣿⣿⣿⣿⣶⣤⣤⣤⣶⣶⣤⣄⡀⠀⢀⣀⡀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⢠⣿⣿⣿⣿⡿⠻⢿⣿⣿⣿⣿⣿⣿⣿⡿⠿⣿⣿⣿⣿⣿⣦⠀⠀⠀
-  ⠀⢠⣶⣿⣿⣿⡿⠛⠁⠠⣦⣠⣄⠈⠉⠉⣉⡀⠀⢀⣠⡈⠻⢿⣿⣿⡿⠀⠀
-  ⠀⠈⠛⠛⠋⠁⠀⣚⣶⢤⣼⣿⣷⣶⣶⣾⣿⡶⢾⡛⠋⠻⠦⠄⠉⠛⠁⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠘⠋⠁⠀⠀⢹⣿⣿⣿⣿⣿⠀⠛⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣾⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀     ⢸⣿⣿⣿⣿⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-  ⠀⠀⠀⠀⠀⠀⠀⠀⠀    ⢸⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-      ⠛⠛⠛⠛⠛⠛⠛⠁
-`;
+  const handleLoginSuccess = () => {
+    console.log('Login successful! Navigate to goals page.');
+    // Dodaj kod nawigacyjny po udanym zalogowaniu, na przykład:
+    // history.push('/goals');
+  };
 
-const [isAuthenticated, setIsAuthenticated] = useState(false);
-const [showAsciiArt, setShowAsciiArt] = useState(true);
-const [startApp, setStartApp] = useState(false); 
 
-const handleLoginToggle = () => {
-  setIsAuthenticated(!isAuthenticated);
-};
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          {/* Przekazanie funkcji handleLoginSuccess jako prop do komponentu Login */}
+          <Route path="/login" element={<Login/>} />
+          <Route path="/goals" element={<GoalList />} />
+          <Route path="/goal/:id" element={<GoalDetails />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path='' element={<MainPage />} />
+          <Route path='/MentalTracker' element={<MainPage />} />
 
-const handleStartClick = () => {
-  setShowAsciiArt(false);
-  setStartApp(true);
-};
-
-return (
-  <Router>
-    <div className="App">
-      {showAsciiArt && (
-        <header className="App-header">
-          <h1>Mental Tracker</h1>
-          <pre className="ascii-art">{asciiArt}</pre>
-          {!isAuthenticated && (
-            <button className="button" onClick={handleStartClick}>
-              Start
-            </button>
-          )}
-        </header>
-      )}
-      {startApp && (
-        <div className="app-container-start">
-          <div className="Tree" ><Tree/></div>
-          <div className="Navbar"><Navbar isAuthenticated={isAuthenticated} onLogin={handleLoginToggle} /></div>
-          
-        </div>
-      )}
-    </div>
-  </Router>
-);
-};
+          <Route
+            path="*"
+            element={
+              <div>
+                <h2>404 Page not found</h2>
+              </div>
+            }
+          />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
 
 export default App;

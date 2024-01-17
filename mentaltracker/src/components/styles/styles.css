@@ -1,0 +1,97 @@
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Navbar styles */
+  .navbar {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* Login styles */
+  .login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  .login-container.dark-theme {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+  }
+  
+  .login-container input,
+  .login-container button,
+  .login-container a {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #000; /* Black border */
+    border-radius: 4px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .login-container input:hover,
+  .login-container button:hover,
+  .login-container a:hover {
+    background-color: #000; /* Black background on hover */
+    color: #fff; /* White text on hover */
+  }
+  
+  /* MainPage styles */
+  .main-page-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+  }
+  
+  .main-page-container pre {
+    font-family: 'Arial', sans-serif;
+    white-space: pre-wrap;
+  }
+  
+  .main-page-container blockquote {
+    font-size: 18px;
+    text-align: center;
+    margin: 20px 0;
+    color: #000; /* Black text */
+  }
+  
+  .main-page-container p {
+    font-size: 16px;
+    color: #000; /* Black text */
+  }
+  
+  .navbar-container {
+    background-color: #333; /* Add your desired background color */
+    padding: 10px;
+  }
+  
+  .navbar-list {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .navbar-item {
+    margin: 0;
+  }
+  
+  .navbar-item a {
+    text-decoration: none;
+    color: white; /* Add your desired text color */
+  }
