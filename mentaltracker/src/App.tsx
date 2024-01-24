@@ -26,7 +26,7 @@ const App: React.FC = () => {
           <Route path="/goal/:id" element={<GoalDetails />} />
           <Route path="/home" element={<MainPage />} />
           <Route path='' element={<MainPage />} />
-          <Route path='/MentalTracker' element={<MainPage />} />
+          <Route path='/MentalTracker/' element={<MainPage />} />
 
           <Route
             path="*"
